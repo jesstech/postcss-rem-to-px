@@ -11,10 +11,12 @@
   "bugs": "https://github.com/jesstech/postcss-rem-to-pixel/issues",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node spec"
+    "test": "jasmine"
   },
   "devDependencies": {
-    "jasmine-node": "~1.11.0",
+    "jasmine": "^5.0.2",
+    "postcss": "^8.4.24",
+    "postcss-focus": "^6.0.0",
     "postcss-pxtorem": "^4.0.1"
   },
   "keywords": [
@@ -26,7 +28,6 @@
     "postcss-plugin"
   ],
   "dependencies": {
-    "object-assign": "^4.1.0",
-    "postcss": "^5.2.10"
+    "object-assign": "^4.1.0"
   }
 }
