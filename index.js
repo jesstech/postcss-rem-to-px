@@ -1,7 +1,5 @@
 'use strict';
 
-var postcss = require('postcss');
-var objectAssign = require('object-assign');
 var remRegex = require('./lib/rem-unit-regex');
 var filterPropList = require('./lib/filter-prop-list');
 
@@ -15,11 +13,9 @@ var defaults = {
     minRemValue: 0
 };
 
-module.exports = postcss.plugin('postcss-rem-to-pixel', function (options) {
-
-    var opts = objectAssign({}, defaults, options);
+module.exports = function (options) {
+    var opts = Object.assign({}, defaults, options);
     var remReplace = createRemReplace(opts.rootValue, opts.unitPrecision, opts.minRemValue);
-
     var satisfyPropList = createPropListMatcher(opts.propList);
 
     return function (css) {
@@ -52,7 +48,7 @@ module.exports = postcss.plugin('postcss-rem-to-pixel', function (options) {
         }
 
     };
-});
+};
 
 function createRemReplace (rootValue, unitPrecision, minRemValue) {
     return function (m, $1) {
